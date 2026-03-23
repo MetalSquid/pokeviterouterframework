@@ -1,108 +1,45 @@
-import { useState } from 'react';
-import { Form } from "react-router";
+import { Form, useActionData, redirect } from "react-router";
+import { signUpEmailAndPassword } from "../../utils/firebase.utils";
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const password = formData.get("password");
+  console.log(email);
+  console.log(password)
+
+  if (!email || !password) {
+    return { error: "Email and password are required." };
+  }
+
+  try {
+    await signUpEmailAndPassword(email, password);
+    return redirect("/store");
+  } catch (err) {
+    return { error: err.message };
+  }
+}
 
 export default function SignUpForm() {
-    const [formData, setFormData] = useState({
-        fName: '',
-        lName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
-    const [errors, setErrors] = useState({});
+  const data = useActionData();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+  return (
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
+      <Form method="post">
+        <div>
+          <label htmlFor="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newErrors = {};
-        
-
-        if (!formData.fName) newErrors.fName = 'First name is required';
-        if (!formData.lName) newErrors.lName = 'Last name is required';
-        if (!formData.email) newErrors.email = 'Email is required';
-        if (!formData.password) newErrors.password = 'Password is required';
-        if (formData.password !== formData.confirmPassword) {
-            newErrors.confirmPassword = 'Passwords do not match';
-        }
-
-        setErrors(newErrors);
-
-        if (Object.keys(newErrors).length === 0) {
-            console.log('Form submitted:', formData);
-            // Handle sign up logic here
-        }
-    };
-
-    return (
-        <Form onSubmit={handleSubmit} method="post"className="sign-up-form">
-            <div className="form-group">
-                <label htmlFor="fName">First Name</label>
-                <input
-                    type="text"
-                    id="fName"
-                    name="fName"
-                    value={formData.fName}
-                    onChange={handleChange}
-                />
-                {errors.fName && <span className="error">{errors.fName}</span>}
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="lName">Last Name</label>
-                <input
-                    type="text"
-                    id="lName"
-                    name="lName"
-                    value={formData.lName}
-                    onChange={handleChange}
-                />
-                {errors.lName && <span className="error">{errors.lName}</span>}
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-                {errors.password && <span className="error">{errors.password}</span>}
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                />
-                {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
-            </div>
-
-            <button type="submit">Sign Up</button>
-        </Form>
-    );
+        <div>
+          <label htmlFor="password">Password</label>
+          <input id="password" name="password" type="password" required />
+        </div>
+        {data?.error && <p>{data.error}</p>}
+        <button>Sign Up</button>
+      </Form>
+    </div>
+  );
 }
