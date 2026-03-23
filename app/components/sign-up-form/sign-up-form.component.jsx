@@ -1,24 +1,7 @@
-import { Form, useActionData, redirect } from "react-router";
+import { Form, useActionData } from "react-router";
 import { signUpEmailAndPassword } from "../../utils/firebase.utils";
 
-export async function action({ request }) {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
-  console.log(email);
-  console.log(password)
 
-  if (!email || !password) {
-    return { error: "Email and password are required." };
-  }
-
-  try {
-    await signUpEmailAndPassword(email, password);
-    return redirect("/store");
-  } catch (err) {
-    return { error: err.message };
-  }
-}
 
 export default function SignUpForm() {
   const data = useActionData();
