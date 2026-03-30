@@ -29,7 +29,7 @@ const categories = [
   {
     id: 5,
     title: "Fighting",
-    route: "/store/Fighting",
+    route: "/store/fighting",
     imageUrl: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/068.png",
   },
   {

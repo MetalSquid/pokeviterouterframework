@@ -1,15 +1,15 @@
-import { redirect } from "react-router"
-import "./directory-item.styles.css"
+import { Link } from "react-router";
+import "./directory-item.styles.css";
 
 export default function DirectoryItem({category}){
     const {imageUrl, title, route } = category
     return (
-        <div className="directory-item-container">
+        <Link to={route} className="directory-item-container">
             <img className="background-image" src={imageUrl}/>
             
                 <h2>{title}</h2>
                 <p>shop now</p>
             
-        </div>
+        </Link>
     )
 }
