@@ -1,13 +1,9 @@
 import { Form } from "react-router";
-
-export async function action({ request }) {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
-  return null;
-}
+import { useActionData } from "react-router";
 
 export default function LoginForm() {
+  const data = useActionData();
+
   return (
     <Form method="post">
       <div>
@@ -18,7 +14,17 @@ export default function LoginForm() {
         <label htmlFor="password">Password</label>
         <input id="password" name="password" type="password" required />
       </div>
-      <button>Login</button>
+      {data?.error && <p>{data.error}</p>}
+      <div>
+        <button type="submit" name="intent" value="login">
+          Login
+        </button>{" "}
+      </div>
+      <div>
+        <button type="submit" name="intent" value="logout" formNoValidate>
+          Sign Out
+        </button>
+      </div>
     </Form>
   );
 }

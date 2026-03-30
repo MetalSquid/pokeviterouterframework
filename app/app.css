@@ -1,0 +1,32 @@
+/* 1. Use a sane box model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* 3. Improve text rendering */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Make media easier to work with */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Inherit fonts for form elements */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 6. Remove list styles */
+ul, ol {
+  padding: 0;
+  list-style: none;
+}

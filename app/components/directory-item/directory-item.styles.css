@@ -1,0 +1,19 @@
+.directory-item-container {
+    padding: auto;
+    display: flex;
+    margin: 15px;
+    overflow: hidden;
+    width: auto;
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+    background-color:aliceblue;
+    border: black solid ;
+
+}
+
+.background-image {
+    margin: 10px;
+    width: 33%;
+    max-height: 33%;
+}

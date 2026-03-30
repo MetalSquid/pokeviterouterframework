@@ -1,5 +1,4 @@
 import { Form, useActionData } from "react-router";
-import { signUpEmailAndPassword } from "../../utils/firebase.utils";
 
 
 
