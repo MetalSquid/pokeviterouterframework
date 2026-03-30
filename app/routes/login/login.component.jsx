@@ -37,7 +37,7 @@ export async function action({ request }) {
 
     try {
       await logInEmail(email, password);
-      return redirect("/store")
+      return redirect("/")
     } catch (err) {
       return { error: err.message };
     }
