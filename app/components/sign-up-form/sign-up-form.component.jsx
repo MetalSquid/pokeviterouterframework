@@ -9,6 +9,14 @@ export default function SignUpForm() {
       <span>Sign up with your email and password</span>
       <Form method="post">
         <div>
+          <label htmlFor="displayName" >Display Name</label>
+          <input 
+          id="displayName"
+          name="displayName"
+          type="text"
+          required/>
+        </div>
+        <div>
           <label htmlFor="email">Email</label>
           <input
             id="email"
