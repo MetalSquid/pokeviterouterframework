@@ -30,3 +30,7 @@ ul, ol {
   padding: 0;
   list-style: none;
 }
+
+.outlet-wrapper {
+  padding-top: 10px; /* or whatever your navbar height is */
+}

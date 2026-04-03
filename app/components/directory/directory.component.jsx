@@ -1,7 +1,6 @@
 import DirectoryItem from "../directory-item/directory-item.component";
-import "./directory.styles.css"
+import "./directory.styles.css";
 import { CATEGORIES_DATA } from "../../data/category-data";
-
 
 export default function Directory() {
   return (

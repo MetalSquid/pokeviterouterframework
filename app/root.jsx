@@ -46,7 +46,9 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <div className="outlet-wrapper">
+        <Outlet />
+      </div>
     </>
   );
 }
