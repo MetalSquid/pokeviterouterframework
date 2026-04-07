@@ -10,8 +10,9 @@ import {
 import NavBar from "./components/navbar/navbar.component";
 
 import "./app.css";
-import { UserContext } from "./context/user.context";
-import { CartContext } from "./context/cart.context";
+import { UserProvider } from "./context/user.context";
+import { CartProvider } from "./context/cart.context";
+import { ShopDataProvider } from "./context/shop-data.context";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -47,14 +48,16 @@ export function Layout({ children }) {
 export default function App() {
   return (
     <>
-      <UserContext>
-        <CartContext>
-          <NavBar />
-          <div className="outlet-wrapper">
-            <Outlet />
-          </div>
-        </CartContext>
-      </UserContext>
+      <UserProvider>
+        <ShopDataProvider>
+          <CartProvider>
+            <NavBar />
+            <div className="outlet-wrapper">
+              <Outlet />
+            </div>
+          </CartProvider>
+        </ShopDataProvider>
+      </UserProvider>
     </>
   );
 }

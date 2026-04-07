@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut
 } from "firebase/auth";
 
 import {
@@ -74,7 +75,7 @@ export const getCategoriesAndDocuments = async () => {
   const querySnapshot = await getDocs(q);
   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     const { title, items } = docSnapshot.data();
-    acc[title.tolowerCase()] = items;
+    acc[title.toLowerCase()] = items;
     return acc;
   }, {});
 
@@ -128,10 +129,9 @@ export const loggingOut = async () => {
   await signOut(auth);
 };
 
-export const onAuthStateChangedListener = async (callback) => {
-  if (!callback) return;
-
-  return await onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (callback) => {
+  if (!callback) return () => {};
+  return onAuthStateChanged(auth, callback);
 };
 
 // firebase auth helpers

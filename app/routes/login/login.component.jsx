@@ -12,7 +12,7 @@ export default function Login() {
   );
 }
 
-export async function action({ request }) {
+export async function clientAction({ request }) {
   const formData = await request.formData();
   const intent = formData.get("intent");
 

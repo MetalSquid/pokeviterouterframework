@@ -3,12 +3,10 @@ import { useLoaderData } from "react-router";
 import "./type.styles.css";
 import PokeGrid from "../../components/poke-grid/poke-grid.component";
 
-export function loader({ params }) {
+export function clientLoader({ params }) {
   const type = params.type.toLowerCase();
 
-  const items = SHOP_DATA.filter(
-    (pokemon) => pokemon.type.toLowerCase() === type,
-  );
+  const items = SHOP_DATA[type]
 
   return { type, items };
 }
