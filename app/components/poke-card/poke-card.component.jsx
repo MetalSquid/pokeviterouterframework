@@ -1,6 +1,10 @@
 import "./poke-card.styles.css";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart.context";
 
 export default function PokeCard({ pokemon }) {
+  const addItemToCart = useContext(CartContext);
+
   return (
     <div className="poke-card-container">
       <img
@@ -11,7 +15,7 @@ export default function PokeCard({ pokemon }) {
 
       <h3>{pokemon.title}</h3>
       <p>${pokemon.price}</p>
-      <button>Add to Cart</button>
+      <button onClick={()=> addItemToCart(pokemon)}>Add to Cart</button>
     </div>
   );
 }

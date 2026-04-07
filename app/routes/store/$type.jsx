@@ -17,7 +17,7 @@ export default function StoreTypePage() {
   const { type, items } = useLoaderData();
 
   return(
-  <div className="store-type-page-containter">
+  <div className="store-route-containter">
     <h1 className="store-title">{type.toUpperCase()} Pokémon</h1>
     <PokeGrid type={type} items={items} />;
   </div>)
