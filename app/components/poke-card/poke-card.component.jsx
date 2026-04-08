@@ -14,7 +14,7 @@ export default function PokeCard({ pokemon }) {
       />
       <h3>{title}</h3>
       <p>${price}</p>
-      <button onClick={() => addItemToCart(pokemon)}>Add to Cart</button>
+      <button className="poke-card-btn" onClick={() => addItemToCart(pokemon)}>Add to Cart</button>
     </div>
   );
 }

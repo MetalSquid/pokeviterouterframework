@@ -32,5 +32,5 @@ ul, ol {
 }
 
 .outlet-wrapper {
-  padding-top: 10px; /* or whatever your navbar height is */
+  padding: 10px; /* or whatever your navbar height is */
 }

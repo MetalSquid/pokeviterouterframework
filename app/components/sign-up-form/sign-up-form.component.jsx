@@ -1,4 +1,5 @@
 import { Form, useActionData } from "react-router";
+import "./sign-up-form.styles.css"
 
 export default function SignUpForm() {
   const data = useActionData();

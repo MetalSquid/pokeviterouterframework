@@ -7,9 +7,10 @@ export default function DirectoryItem({ category }) {
   return (
     <Link to={route} className="directory-item-container">
       <img className="background-image" src={imageUrl} alt={name} />
-
-      <h2>{title}</h2>
-      <p>shop now</p>
+      <div className="directory-item-info">
+        <h2>{title}</h2>
+        <p>shop now</p>
+      </div>
     </Link>
   );
 }

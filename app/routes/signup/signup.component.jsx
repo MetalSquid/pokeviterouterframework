@@ -1,13 +1,11 @@
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
-import {
-  signUpEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase.utils";
+import { signUpAndUpdateProfile } from "../../utils/firebase.utils";
 import { redirect } from "react-router";
+import "./signup.styles.css";
 
 export default function SignUp() {
   return (
-    <div className="signUp">
+    <div className="signUp-container">
       <SignUpForm />
     </div>
   );
@@ -19,15 +17,12 @@ export async function clientAction({ request }) {
   const password = formData.get("password");
   const displayName = formData.get("displayName");
 
-  if (!email || !password) {
-    return { error: "Email and password are required." };
+  if (!email || !password || !displayName) {
+    return { error: "Email, password and display name are required." };
   }
 
   try {
-    const { user } = await signUpEmailAndPassword(email, password);
-
-    await createUserDocumentFromAuth(user, { displayName });
-
+    await signUpAndUpdateProfile(email, password, displayName);
     return redirect("/");
   } catch (err) {
     return { error: err.message };

@@ -2,10 +2,11 @@ import { initializeApp } from "firebase/app";
 
 import {
   getAuth,
+  signOut,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  updateProfile,
 } from "firebase/auth";
 
 import {
@@ -113,10 +114,18 @@ export const createUserDocumentFromAuth = async (
 
 //firestore helpers
 
-export const signUpEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
+export const signUpAndUpdateProfile = async (email, password, displayName) => {
+  if (!email || !password || !displayName) return;
 
-  return await createUserWithEmailAndPassword(auth, email, password);
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+  // set displayName immediately after account creation
+  await updateProfile(userCredential.user, { displayName });
+
+  // save to firestore with the displayName already set
+  await createUserDocumentFromAuth(userCredential.user);
+
+  return userCredential;
 };
 
 export const logInEmail = async (email, password) => {

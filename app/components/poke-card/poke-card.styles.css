@@ -41,7 +41,7 @@
 }
 
 /* Add to Cart button */
-.poke-card-container button {
+.poke-card-btn {
   background: #ffcb05;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -51,7 +51,12 @@
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.poke-card-container button:hover {
+.poke-card-btn:hover {
   background: #e6b300;
   transform: translateY(-2px);
+}
+
+.poke-card-btn:active {
+  background-color: #d4a700; /* darker yellow */
+  transform: scale(0.97);  /*button slightly shrinks when clicked*/
 }

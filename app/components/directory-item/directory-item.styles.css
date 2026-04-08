@@ -1,14 +1,57 @@
 .directory-item-container {
-  background: #f0f8ff;
-  padding: 1rem;
+  position: relative;
+  overflow: hidden;
   border-radius: 12px;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.directory-item-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Background image */
 .background-image {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.directory-item-container:hover .background-image {
+  transform: scale(1.08);
+  filter: brightness(0.9);
+}
+
+/* Text overlay */
+.directory-item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+  color: white;
+  text-align: left;
+}
+
+.directory-item-info h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.directory-item-info p {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

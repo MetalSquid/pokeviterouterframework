@@ -1,9 +1,9 @@
 import LoginForm from "../../components/login-form/login-form.component";
-import { loggingOut, logInEmail, auth } from "../../utils/firebase.utils";
+import { loggingOut, logInEmail } from "../../utils/firebase.utils";
 import { redirect } from "react-router";
+import "./login.styles.css";
 
 export default function Login() {
-
   return (
     <div className="login">
       <h2>Please login</h2>
@@ -19,8 +19,8 @@ export async function clientAction({ request }) {
   // LOGOUT should run without requiring email/password
   if (intent === "logout") {
     try {
-      await loggingOut;
-      return redirect("/")
+      await loggingOut();
+      return redirect("/");
     } catch (err) {
       return { error: err.message };
     }
@@ -37,7 +37,7 @@ export async function clientAction({ request }) {
 
     try {
       await logInEmail(email, password);
-      return redirect("/")
+      return redirect("/");
     } catch (err) {
       return { error: err.message };
     }
