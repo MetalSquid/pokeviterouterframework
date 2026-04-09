@@ -15,11 +15,11 @@ export default function CartItem({ item }) {
 
         <div className="cart-item-controls">
           <button onClick={() => removeItemFromCart(item)}>-</button>
-          <span className="cart-item-quantity">{quantity}</span>
+          <span className="cart-item-quantity"> {quantity} </span>
           <button onClick={() => addItemToCart(item)}>+</button>
         </div>
 
-        <span className="cart-item-total">${price * quantity}</span>
+        <span className="cart-item-total"> ${price * quantity}</span>
       </div>
 
       <button

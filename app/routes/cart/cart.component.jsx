@@ -1,5 +1,6 @@
 import { useCart } from "../../context/cart.context";
 import CartItem from "../../components/cart-item/cart-item.component";
+import { Link, redirect } from "react-router";
 import "./cart.styles.css";
 
 export default function CartPage() {
@@ -18,7 +19,8 @@ export default function CartPage() {
           ))}
           <div className="cart-total">
             <span>Total: ${cartTotal}</span>
-            <button>Checkout</button>
+            <Link to="/checkout">
+            <button>Checkout</button> </Link>
           </div>
         </>
       )}
