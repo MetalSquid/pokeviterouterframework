@@ -20,7 +20,7 @@ export async function clientAction({ request }) {
   if (intent === "logout") {
     try {
       await loggingOut();
-      return redirect("/");
+      return redirect("/login");
     } catch (err) {
       return { error: err.message };
     }

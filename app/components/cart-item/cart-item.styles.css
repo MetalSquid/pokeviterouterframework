@@ -4,13 +4,13 @@
   padding: 1rem;
   border-bottom: 1px solid #ddd;
   align-items: center;
-  position: relative;
 }
 
 .cart-item-image {
   width: 80px;
   height: 80px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .cart-item-info {
@@ -30,6 +30,7 @@
   width: 24px;
   height: 24px;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .cart-item-remove {
@@ -38,7 +39,7 @@
   font-size: 1.2rem;
   cursor: pointer;
   color: #444;
-  position: absolute;
-  top: 8px;
-  right: 8px;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: auto;
 }

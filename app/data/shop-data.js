@@ -32,12 +32,12 @@ export const SHOP_DATA = {
   fire: [
     {
       id: 4,
-      title: "Charmander",
+      title: "Charizard",
       type: "fire",
       description: "The flame at the tip of its tail makes a sound as it burns. You can only hear it in quiet places.",
       price: 60,
       imageUrl:
-        "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/004.png",
+        "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/006.png",
     },
     {
       id: 5,
