@@ -1,5 +1,6 @@
 import { Form, useActionData } from "react-router";
-import "./sign-up-form.styles.css"
+import { GoogleIcon } from "../../assets/google-icon";
+import "./sign-up-form.styles.css";
 
 export default function SignUpForm() {
   const data = useActionData();
@@ -10,12 +11,8 @@ export default function SignUpForm() {
       <span>Sign up with your email and password</span>
       <Form method="post">
         <div>
-          <label htmlFor="displayName" >Display Name</label>
-          <input 
-          id="displayName"
-          name="displayName"
-          type="text"
-          required/>
+          <label htmlFor="displayName">Display Name</label>
+          <input id="displayName" name="displayName" type="text" required />
         </div>
         <div>
           <label htmlFor="email">Email</label>
@@ -39,7 +36,22 @@ export default function SignUpForm() {
           />
         </div>
         {data?.error && <p>{data.error}</p>}
-        <button>Sign Up</button>
+        <button type="submit" name="intent" value="signup">
+          Sign Up
+        </button>
+
+        <div className="divider">or</div>
+
+        <button
+          type="submit"
+          name="intent"
+          value="google"
+          className="google-btn"
+          formNoValidate
+        >
+          <GoogleIcon />
+          Sign up with Google
+        </button>
       </Form>
     </div>
   );

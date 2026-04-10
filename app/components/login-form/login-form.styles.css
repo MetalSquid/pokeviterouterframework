@@ -4,7 +4,6 @@ form {
   gap: 1.2rem;
 }
 
-/* Form fields */
 form div {
   display: flex;
   flex-direction: column;
@@ -31,14 +30,12 @@ input:focus {
   outline: none;
 }
 
-/* Error message */
 form p {
   color: #d9534f;
   font-weight: 600;
   margin-top: -0.5rem;
 }
 
-/* Buttons */
 button {
   width: 100%;
   padding: 0.75rem;
@@ -50,7 +47,6 @@ button {
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* Login button */
 button[value="login"] {
   background-color: #ffcb05;
   color: #333;
@@ -65,18 +61,45 @@ button[value="login"]:active {
   transform: scale(0.97);
 }
 
-/* Logout button */
-button[value="logout"] {
-  background-color: #e74c3c;
-  color: white;
-  margin-top: 0.5rem;
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #888;
+  font-size: 0.9rem;
 }
 
-button[value="logout"]:hover {
-  background-color: #cf3f30;
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
 }
 
-button[value="logout"]:active {
-  background-color: #b7372a;
+/* Google button */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn:active {
   transform: scale(0.97);
 }

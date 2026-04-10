@@ -1,5 +1,6 @@
 import "./cart-item.styles.css";
 import { useCart } from "../../context/cart.context";
+import {Plus, Minus, X} from "lucide-react";
 
 export default function CartItem({ item }) {
   const { title, price, description, imageUrl, quantity } = item;
@@ -14,9 +15,9 @@ export default function CartItem({ item }) {
         <p className="cart-item-description">{description}</p>
 
         <div className="cart-item-controls">
-          <button onClick={() => removeItemFromCart(item)}>-</button>
+          <button onClick={() => removeItemFromCart(item)}><Minus size={14} /></button>
           <span className="cart-item-quantity"> {quantity} </span>
-          <button onClick={() => addItemToCart(item)}>+</button>
+          <button onClick={() => addItemToCart(item)}><Plus size={14}/></button>
         </div>
 
         <span className="cart-item-total"> ${price * quantity}</span>
@@ -26,7 +27,7 @@ export default function CartItem({ item }) {
         className="cart-item-remove"
         onClick={() => clearItemFromCart(item)}
       >
-        ✕
+        <X size={16}/>
       </button>
     </div>
   );

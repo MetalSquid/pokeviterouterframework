@@ -1,5 +1,6 @@
 import { Form, useActionData } from "react-router";
 import "./login-form.styles.css";
+import { GoogleIcon } from "../../assets/google-icon.jsx";
 
 export default function LoginForm() {
   const data = useActionData();
@@ -18,13 +19,20 @@ export default function LoginForm() {
       <div>
         <button type="submit" name="intent" value="login">
           Login
-        </button>{" "}
-      </div>
-      <div>
-        <button type="submit" name="intent" value="logout" formNoValidate>
-          Sign Out
         </button>
       </div>
+      <div className="divider">or</div>
+
+      <button
+        type="submit"
+        name="intent"
+        value="google"
+        className="google-btn"
+        formNoValidate
+      >
+        <GoogleIcon />
+        Sign in with Google
+      </button>
     </Form>
   );
 }

@@ -1,5 +1,9 @@
 import LoginForm from "../../components/login-form/login-form.component";
-import { loggingOut, logInEmail } from "../../utils/firebase.utils";
+import {
+  loggingOut,
+  logInEmail,
+  signInWithGoogle,
+} from "../../utils/firebase.utils";
 import { redirect } from "react-router";
 import "./login.styles.css";
 
@@ -21,6 +25,16 @@ export async function clientAction({ request }) {
     try {
       await loggingOut();
       return redirect("/login");
+    } catch (err) {
+      return { error: err.message };
+    }
+  }
+
+  // LOGIN with GOOGLE
+  if (intent === "google") {
+    try {
+      await signInWithGoogle();
+      return redirect("/");
     } catch (err) {
       return { error: err.message };
     }
