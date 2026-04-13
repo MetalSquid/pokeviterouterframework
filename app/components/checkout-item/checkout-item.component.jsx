@@ -2,14 +2,13 @@ import "./checkout-item.styles.css";
 import { Link, useNavigate } from "react-router";
 import { useCart } from "../../context/cart.context";
 
-export default function CheckoutItems() {
+export default function CheckoutItem() {
   const { cartTotal, cartItems, clearCart } = useCart();
   const navigate = useNavigate();
 
   const handleConfirm = () => {
     clearCart();
-    navigate("/");
-    alert("Order confirmed! Thank you for your purchase.");
+    navigate("/confirmation-page");
   };
 
   if (cartItems.length === 0) {

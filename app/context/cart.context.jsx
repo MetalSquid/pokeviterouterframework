@@ -1,4 +1,8 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import {
+  saveCartToFirestore,
+  getCartFromFirestore, onAuthStateChangedListener, auth
+} from "../utils/firebase.utils";
 
 const addCartItem = (cartItems, productToAdd) => {
   console.log("Adding to cart:", productToAdd);
@@ -33,11 +37,8 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
-const clearCartItem = (cartItems, cartItemToClear) => 
+const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
-
-
-const clearCart = () => [];
 
 export const CartContext = createContext({
   isCartOpen: false,
@@ -75,6 +76,24 @@ export const CartProvider = ({ children }) => {
     setCartTotal(newCartTotal);
   }, [cartItems]);
 
+  useEffect(() => {
+  const unsubscribe = onAuthStateChangedListener(async (user) => {
+    if (!user) {
+      setCartItems([]);
+      return;
+    }
+    const savedCart = await getCartFromFirestore(user.uid);
+    setCartItems(savedCart);
+  });
+
+  return () => unsubscribe();
+}, []);
+
+useEffect(() => {
+  if (!auth.currentUser) return;
+  saveCartToFirestore(auth.currentUser.uid, cartItems);
+}, [cartItems]);
+
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
@@ -88,8 +107,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-  setCartItems([]);
-};
+    setCartItems([]);
+  };
 
   const value = {
     isCartOpen,

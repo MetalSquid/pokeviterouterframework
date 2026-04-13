@@ -7,4 +7,5 @@ export default [
   route("/store/:type", "routes/store/$type.jsx"),
   route("/cart", "routes/cart/cart.component.jsx"),
   route("/checkout", "routes/checkout/checkout.component.jsx"),
+  route("/confirmation-page", "routes/confirmation-page/confirmation-page.component.jsx")
 ] satisfies RouteConfig;

@@ -153,4 +153,22 @@ export const onAuthStateChangedListener = (callback) => {
   return onAuthStateChanged(auth, callback);
 };
 
+export const getCurrentUser = () => auth.currentUser;
+
 // firebase auth helpers
+
+// persist cart to firestore on refreshes
+
+export const saveCartToFirestore = async (userId, cartItems) => {
+  const cartRef = doc(db, "users", userId, "cart", "items");
+  await setDoc(cartRef, { cartItems });
+};
+
+export const getCartFromFirestore = async (userId) => {
+  const cartRef = doc(db, "users", userId, "cart", "items");
+  const cartSnapshot = await getDoc(cartRef);
+  if (cartSnapshot.exists()) {
+    return cartSnapshot.data().cartItems;
+  }
+  return [];
+};
