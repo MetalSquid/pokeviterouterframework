@@ -1,15 +1,19 @@
 import "./checkout-item.styles.css";
 import { Link, useNavigate } from "react-router";
 import { useCart } from "../../context/cart.context";
+import { getCurrentUser } from "../../utils/firebase.utils";
 
 export default function CheckoutItem() {
   const { cartTotal, cartItems, clearCart } = useCart();
   const navigate = useNavigate();
+  const user = getCurrentUser();
 
   const handleConfirm = () => {
     clearCart();
     navigate("/confirmation-page");
   };
+
+  if (!user) return null;
 
   if (cartItems.length === 0) {
     return (
@@ -23,7 +27,6 @@ export default function CheckoutItem() {
   return (
     <div className="checkoutForm-container">
       <h1>Checkout</h1>
-
       <div className="checkout-items">
         {cartItems.map((item) => (
           <div key={item.id} className="checkout-item">

@@ -1,7 +1,11 @@
-import { redirect } from "react-router";
-import { getCurrentUser } from "../../utils/firebase.utils";
+import { requireAuth } from "../../utils/auth-guard";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import "./checkout.styles.css";
+
+export async function clientLoader() {
+  await requireAuth();
+  return null;
+}
 
 export default function Checkout() {
   return (
@@ -10,10 +14,3 @@ export default function Checkout() {
     </div>
   );
 }
-
-export function clientLoader() {
-  const user = getCurrentUser();
-  if (!user) return redirect("/confirmation-page");
-  return null;
-}
-

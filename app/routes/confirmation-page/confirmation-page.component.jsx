@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { CheckCircle } from "lucide-react";
 import "./confirmation-page.styles.css";
 
-export default function OrderConfirmation() {
+export default function ConfirmationPage() {
   return (
     <div className="order-confirmation-container">
 

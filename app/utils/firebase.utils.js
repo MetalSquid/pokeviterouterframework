@@ -172,3 +172,15 @@ export const getCartFromFirestore = async (userId) => {
   }
   return [];
 };
+
+// used to protext route for checkout
+export const waitForUser = () => {
+  return new Promise((resolve) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    });
+  });
+};
+
+//
