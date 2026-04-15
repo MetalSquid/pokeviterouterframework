@@ -112,3 +112,38 @@
 .google-btn:active {
   transform: scale(0.97);
 }
+
+/* styling for the password criteria */
+.password-criteria {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.password-criteria li {
+  font-size: 0.85rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.password-criteria li::before {
+  content: "✕";
+  font-size: 0.75rem;
+  color: #aaa;
+  transition: color 0.2s ease;
+}
+
+.password-criteria li.met {
+  color: #2e7d32;
+}
+
+.password-criteria li.met::before {
+  content: "✓";
+  color: #2e7d32;
+}
