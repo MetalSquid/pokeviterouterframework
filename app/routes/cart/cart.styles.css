@@ -30,8 +30,25 @@
 }
 
 .cart-total button:active {
-  background-color: #d4a700; /* darker yellow */
+  background-color: #d4a700;
   transform: scale(0.97);  
 }
 
+@media (max-width: 768px) {
+  .cart-page {
+    margin: 1rem auto;
+    gap: 1rem;
+  }
 
+  .cart-total {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cart-total button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}

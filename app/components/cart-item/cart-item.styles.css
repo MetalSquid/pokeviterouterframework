@@ -90,3 +90,38 @@
   background: #f0f0f0;
   color: #000;
 }
+
+@media (max-width: 768px) {
+  .cart-item-container {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .cart-item-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cart-item-title {
+    font-size: 0.9rem;
+  }
+
+  .cart-item-description {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-title {
+    font-size: 0.85rem;
+  }
+
+  .cart-item-total {
+    font-size: 0.85rem;
+  }
+}

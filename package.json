@@ -13,7 +13,6 @@
     "firebase": "^12.11.0",
     "firestore": "^1.1.6",
     "isbot": "^5.1.31",
-    "lucide-react": "^1.8.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-form-hook": "^0.0.1",

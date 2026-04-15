@@ -10,3 +10,21 @@
   text-transform: capitalize;
   margin-bottom: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  .store-route-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .store-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .store-title {
+    font-size: 1.25rem;
+  }
+}

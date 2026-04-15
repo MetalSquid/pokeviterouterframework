@@ -16,7 +16,6 @@
   box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
-/* Pokémon image */
 .card-background-image {
   width: 140px;
   height: 140px;
@@ -24,7 +23,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* Title */
 .poke-card-container h3 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -32,7 +30,6 @@
   text-transform: capitalize;
 }
 
-/* Price */
 .poke-card-container p {
   font-size: 1rem;
   font-weight: 500;
@@ -40,7 +37,6 @@
   margin: 0.25rem 0 1rem;
 }
 
-/* Add to Cart button */
 .poke-card-btn {
   background: #ffcb05;
   border: none;
@@ -49,6 +45,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
+  width: 100%;
 }
 
 .poke-card-btn:hover {
@@ -57,6 +54,37 @@
 }
 
 .poke-card-btn:active {
-  background-color: #d4a700; /* darker yellow */
-  transform: scale(0.97);  /*button slightly shrinks when clicked*/
+  background-color: #d4a700;
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+  .poke-card-container {
+    padding: 1rem;
+  }
+
+  .card-background-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .poke-card-container h3 {
+    font-size: 0.95rem;
+  }
+
+  .poke-card-container p {
+    font-size: 0.9rem;
+  }
+
+  .poke-card-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-background-image {
+    width: 80px;
+    height: 80px;
+  }
 }
