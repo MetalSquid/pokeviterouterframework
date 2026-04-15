@@ -4,28 +4,24 @@
   gap: 1rem;
 }
 
-/* Form layout */
 .sign-up-container form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 } 
 
-/* Field groups */
 .sign-up-container form div {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-/* Labels */
 .sign-up-container label {
   font-weight: 600;
   margin-bottom: 0.3rem;
   color: #444;
 }
 
-/* Inputs */
 .sign-up-container input {
   padding: 0.7rem 0.9rem;
   border: 1px solid #ccc;
@@ -40,15 +36,14 @@
   outline: none;
 }
 
-/* Error message */
 .sign-up-container p {
   color: #d9534f;
   font-weight: 600;
   margin-top: -0.5rem;
 }
 
-/* Sign Up button */
-.sign-up-container button {
+/* scoped to signup button only */
+.sign-up-container button[value="signup"] {
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
@@ -61,16 +56,15 @@
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.sign-up-container button:hover {
+.sign-up-container button[value="signup"]:hover {
   background-color: #2f8ef0;
 }
 
-.sign-up-container button:active {
+.sign-up-container button[value="signup"]:active {
   background-color: #1f6fc2;
   transform: scale(0.97);
 }
 
-/* Divider */
 .divider {
   display: flex;
   align-items: center;
@@ -87,7 +81,6 @@
   background: #ddd;
 }
 
-/* Google button */
 .google-btn {
   display: flex;
   align-items: center;
@@ -101,6 +94,7 @@
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  width: 100%;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -113,7 +107,7 @@
   transform: scale(0.97);
 }
 
-/* styling for the password criteria */
+/* criteria  */
 .password-criteria {
   list-style: none;
   padding: 0;

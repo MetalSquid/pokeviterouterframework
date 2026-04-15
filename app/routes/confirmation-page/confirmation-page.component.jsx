@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { CheckCircle } from "lucide-react";
+import { FiCheckCircle } from "react-icons/fi";
 import "./confirmation-page.styles.css";
 
 export default function ConfirmationPage() {
@@ -8,7 +8,7 @@ export default function ConfirmationPage() {
 
       <div className="confirmation-card">
 
-        <CheckCircle size={80} color="#ffcb05" strokeWidth={1.5} />
+        <FiCheckCircle size={80} color="#ffcb05" strokeWidth={1.5} />
         <h1>Order Confirmed!</h1>
         <p>Thank you for your purchase. Your Pokémon are on their way!</p>
 

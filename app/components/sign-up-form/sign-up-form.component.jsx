@@ -1,5 +1,5 @@
 import { Form, useActionData } from "react-router";
-import { GoogleIcon } from "../../assets/google-icon";
+import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import "./sign-up-form.styles.css";
 
@@ -74,7 +74,7 @@ export default function SignUpForm() {
           className="google-btn"
           formNoValidate
         >
-          <GoogleIcon />
+          <FcGoogle />
           Sign up with Google
         </button>
       </Form>
